@@ -1,9 +1,8 @@
-<script setup>
-import TheWelcome from '@/components/TheWelcome.vue'
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <ClarityWelcome />
 </template>
+
+<script setup>
+// Components
+import ClarityWelcome from "../components/ClarityWelcome.vue";
+</script>
