@@ -14,11 +14,11 @@ import { reactive } from "vue";
 const buttons = reactive([
   {
     text: "All employees",
-    route: "employees/all",
+    route: "/employees/all",
   },
   {
     text: "Add employee",
-    route: "/add",
+    route: "/employees/add",
   },
 ]);
 </script>

@@ -25,5 +25,5 @@
 <script setup>
 import { ref } from "vue";
 import NavMenu from "../src/components/NavMenu.vue";
-const isShowDrawer = ref(true);
+const isShowDrawer = ref(false);
 </script>

@@ -33,7 +33,10 @@ const employees = reactive([
         <v-col>
           <v-row class="justify-space-between">
             <div>{{ employee.name }}</div>
-            <v-btn flat btn icon="mdi-pencil" color="transparent"></v-btn>
+            <div>
+              <v-btn flat btn icon="mdi-pencil" color="transparent"></v-btn>
+              <v-btn flat btn icon="mdi-delete" color="transparent"></v-btn>
+            </div>
           </v-row>
         </v-col>
       </template>
