@@ -1,21 +1,7 @@
 <script setup>
 import { reactive } from "vue";
-const employees = reactive([
-  {
-    id: 0,
-    name: "Mr fluffy",
-    age: 18,
-    title: "Shift manager",
-    details: "lorem ipsum",
-  },
-  {
-    id: 1,
-    name: "Mrs Betty",
-    age: 75,
-    title: "Betty boop",
-    details: "lorem ipsum",
-  },
-]);
+import { useEmployeeStore } from "../stores/counter";
+const employees = useEmployeeStore();
 </script>
 
 <template>
