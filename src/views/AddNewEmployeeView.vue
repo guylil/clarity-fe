@@ -1,5 +1,10 @@
 <script setup>
 import { reactive, ref } from "vue";
+import { storeToRefs } from "pinia";
+import { useEmployeeStore } from "../stores/employees";
+
+const employeeStore = useEmployeeStore();
+const { employeeFields } = storeToRefs(employeeStore);
 
 const isFormValid = ref(false);
 const employeeDetails = reactive([
@@ -30,8 +35,17 @@ const employeeDetails = reactive([
 const validationRules = {
   required: (v) => !!v || "field is required",
 };
-function submit(formData) {
-  console.log(employeeDetails);
+function saveData() {
+  let newEmployee = {};
+  employeeFields.value.forEach((field) => {
+    const employeeData = employeeDetails.filter(
+      (item) => item.fieldName === field
+    );
+    if (!!employeeData[0].userInputData) {
+      newEmployee[field] = employeeData[0].userInputData;
+    }
+  });
+  employeeStore.addEmployee(newEmployee);
 }
 </script>
 
@@ -52,18 +66,11 @@ function submit(formData) {
           </v-col>
         </v-row>
         <v-row>
-          <v-btn block color="primary" @click="submit">save</v-btn>
+          <v-btn block color="primary" @click.prevent.stop="saveData">
+            save
+          </v-btn>
         </v-row>
       </v-container>
     </v-form>
   </main>
 </template>
-
-<!--
-{
-    description: "Personal details",
-    name: "",
-    age: 0,
-    title: "Enter title",
-    details: "Add some details",
-  },-->

@@ -1,7 +1,7 @@
 <template>
   <v-col>
     <v-row v-for="(item, idx) in buttons" :key="idx">
-      <v-btn color="primary" class="ma-4" :href="item.route">
+      <v-btn color="primary" class="ma-4" @click="state.navigate(item.route)">
         {{ item.text }}
       </v-btn>
     </v-row>
@@ -10,6 +10,8 @@
 
 <script setup>
 import { reactive } from "vue";
+import { useEmployeeStore } from "../stores/employees";
+const state = useEmployeeStore();
 
 const buttons = reactive([
   {

@@ -1,7 +1,6 @@
 <script setup>
-import { reactive } from "vue";
-import { useEmployeeStore } from "../stores/counter";
-const employees = useEmployeeStore();
+import { useEmployeeStore } from "../stores/employees";
+const state = useEmployeeStore();
 </script>
 
 <template>
@@ -9,7 +8,7 @@ const employees = useEmployeeStore();
     <v-card
       class="mt-8 ml-4"
       color="primary"
-      v-for="(employee, idx) in employees"
+      v-for="(employee, idx) in state.employees"
       :key="idx"
       width="400"
       :subtitle="employee.title"

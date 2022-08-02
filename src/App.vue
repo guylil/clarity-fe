@@ -6,7 +6,7 @@
         </v-app-bar-nav-icon>
       </template>
       <v-app-bar-title>
-        <v-btn flat href="/">
+        <v-btn flat @click="navigate('/')">
           <img
             src="https://global-uploads.webflow.com/62021cd64c762f39eab7f306/6298597f72bfc934fcddfc98_Logo.svg"
             alt="clarity logo"
@@ -26,4 +26,7 @@
 import { ref } from "vue";
 import NavMenu from "../src/components/NavMenu.vue";
 const isShowDrawer = ref(false);
+import { useEmployeeStore } from "./stores/employees";
+const { init, navigate } = useEmployeeStore();
+init();
 </script>
