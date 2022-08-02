@@ -39,6 +39,9 @@ export const useEmployeeStore = defineStore({
         details,
       });
     },
+    deleteEmployee(id) {
+      this.employees = this.employees.filter((employee) => employee.id !== id);
+    },
     navigate(route) {
       this.$router.push(route);
     },

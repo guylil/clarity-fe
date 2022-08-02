@@ -20,13 +20,24 @@ const state = useEmployeeStore();
             <div>{{ employee.name }}</div>
             <div>
               <v-btn flat btn icon="mdi-pencil" color="transparent"></v-btn>
-              <v-btn flat btn icon="mdi-delete" color="transparent"></v-btn>
+              <v-btn
+                flat
+                btn
+                icon="mdi-delete"
+                color="transparent"
+                @click="state.deleteEmployee(employee.id)"
+              ></v-btn>
             </div>
           </v-row>
         </v-col>
       </template>
     </v-card>
-    <v-btn class="mx-4 mt-8" block color="primary" href="/employees/add">
+    <v-btn
+      class="mx-4 mt-8"
+      block
+      color="primary"
+      @click="state.navigate('/employees/add')"
+    >
       Add new employee
     </v-btn>
   </main>
